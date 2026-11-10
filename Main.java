@@ -30,6 +30,27 @@ public class Main {
         } else {
             System.out.println("No! '" + word + "' is NOT a Palindrome.");
         }
+        System.out.println("\n--- Testing OOP ---");
+        
+        // إنشاء كائن (Object) جديد من الكلاس User
+        User user1 = new User("Marwa", "marwa@email.com", "pass123");
+        User user2 = new User("Sara", "sara@email.com", "strongPassword123");
+
+        // استدعاء الدالة للكائن الأول
+        user1.displayProfile();
+        if (user1.isPasswordStrong()) {
+            System.out.println("Password is Strong ✅");
+        } else {
+            System.out.println("Password is Weak ❌");
+        }
+
+        // استدعاء الدالة للكائن الثاني
+        user2.displayProfile();
+        if (user2.isPasswordStrong()) {
+            System.out.println("Password is Strong ✅");
+        } else {
+            System.out.println("Password is Weak ❌");
+        }
         scanner.close();
     }
 }
