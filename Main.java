@@ -51,6 +51,14 @@ public class Main {
         } else {
             System.out.println("Password is Weak ❌");
         }
+                // جرب قراءة الإيميل
+        System.out.println("Reading email securely: " + user1.getEmail());
+
+        // جرب تغيير الباسوورد لباسوورد قصير (يجب أن يرفض)
+        user1.setPassword("123");
+        
+        // جرب تغيير الباسوورد لباسوورد طويل (يجب أن يقبل)
+        user1.setPassword("newStrongPassword123");
         scanner.close();
     }
 }
