@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
@@ -60,5 +61,25 @@ public class Main {
         // جرب تغيير الباسوورد لباسوورد طويل (يجب أن يقبل)
         user1.setPassword("newStrongPassword123");
         scanner.close();
+             System.out.println("\n--- Testing ArrayList ---");
+        
+        // 1. إنشاء قائمة من نوع User
+        ArrayList<User> usersList = new ArrayList<>();
+
+        // 2. إنشاء مستخدمين وإضافتهم للقائمة
+        User u1 = new User("Ali", "ali@test.com", "password123");
+        User u2 = new User("Noura", "noura@test.com", "pass");
+        
+        usersList.add(u1);
+        usersList.add(u2);
+
+        // 3. طباعة عدد المستخدمين
+        System.out.println("Total users: " + usersList.size());
+
+        // 4. الدوران على القائمة (Loop) وطباعة كل مستخدم
+        for (int i = 0; i < usersList.size(); i++) {
+            User currentUser = usersList.get(i);
+            System.out.println("User #" + (i+1) + ": " + currentUser.getEmail());
+        }   
     }
 }
