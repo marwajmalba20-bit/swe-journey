@@ -80,6 +80,36 @@ public class Main {
         for (int i = 0; i < usersList.size(); i++) {
             User currentUser = usersList.get(i);
             System.out.println("User #" + (i+1) + ": " + currentUser.getEmail());
+        }
+                System.out.println("\n--- Testing Search ---");
+
+        // 1. الورقة التي نبحث عنها (الإيميل المطلوب)
+        String targetEmail = "noura@test.com";
+        
+        // 2. ذاكرتنا: هل وجدناه؟ (في البداية لا)
+        boolean isFound = false;
+
+        // 3. نمر على الطابور (القائمة) شخصاً شخصاً
+        for (int i = 0; i < usersList.size(); i++) {
+            
+            // نسحب الشخص الحالي من الطابور
+            User currentUser = usersList.get(i); 
+            
+            // نسأله: هل إيميلك هو نفسه الهدف؟
+            if (currentUser.getEmail().equals(targetEmail)) {
+                
+                // نعم! وجدناه
+                isFound = true; 
+                System.out.println("Success! User Found: " + currentUser.getEmail());
+                
+                // نتوقف عن البحث فوراً
+                break; 
+            }
+        }
+
+        // 4. ماذا لو انتهى الطابور ولم نجد أحداً؟ (علامة ! تعني "ليس")
+        if (!isFound) { 
+            System.out.println("Sorry, User NOT Found!");
         }   
     }
 }
