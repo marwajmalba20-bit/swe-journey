@@ -110,6 +110,27 @@ public class Main {
         // 4. ماذا لو انتهى الطابور ولم نجد أحداً؟ (علامة ! تعني "ليس")
         if (!isFound) { 
             System.out.println("Sorry, User NOT Found!");
-        }   
+        } 
+                System.out.println("\n--- Testing UserManager System ---");
+
+        // 1. إنشاء مدير المستخدمين (Manager)
+        UserManager manager = new UserManager();
+
+        // 2. إضافة المستخدمين إليه
+        manager.addUser(u1); // Ali
+        manager.addUser(u2); // Noura
+        manager.addUser(new User("Sara", "sara@test.com", "pass1234"));
+
+        // 3. تجربة البحث السريع
+        System.out.println("Searching for sara@test.com...");
+        User found = manager.findUser("sara@test.com");
+        if (found != null) {
+            found.displayProfile();
+        } else {
+            System.out.println("Not found.");
+        }
+
+        // 4. طباعة كل المستخدمين
+        manager.displayAllUsers();  
     }
 }
