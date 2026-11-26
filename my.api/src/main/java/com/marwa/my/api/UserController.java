@@ -20,4 +20,17 @@ public class UserController {
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
+        @PutMapping("/update/{id}")
+    public User updateUser(@PathVariable int id, @RequestBody User updatedUser) {
+        User user = userRepository.findById(id).orElseThrow();
+        user.setName(updatedUser.getName());
+        user.setEmail(updatedUser.getEmail());
+        return userRepository.save(user);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public String deleteUser(@PathVariable int id) {
+        userRepository.deleteById(id);
+        return "User with ID " + id + " has been deleted successfully.";
+    }
 }
